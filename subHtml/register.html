@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/loginCommon.css"/>
+		<script src="../js/gVerify.js"></script>
+		<script src="../js/jquery-1.11.3.js"></script>
+	</head>
+	<body>
+		<div class="ad">
+			<div class="adCon" onclick="window.open('http://www.mmloo.com/shop/activity-1336.html')"></div>
+		</div>
+		<div class="header wrapper">
+			<h1><a href="#" target="_blank"><img src="../img/05053060183653829.png"/></a></h1>
+			<span class="welcome">欢迎注册</span>
+			<div class="already_login">
+				<span>已注册，请&nbsp;</span><a href="login.html" target="_blank">登录></a>
+			</div>
+		</div>
+		<div class="loginLayout wrapper">
+			<div class="title">
+				<p>个人用户注册</p>
+			</div>
+			<div class="loginTemp">
+				<div class="loginCon">
+					<form action="" method="post">
+						<div class="cBox">
+							<input type="text" placeholder="请输入11位手机号码"/>
+							<i></i>
+							<p></p>
+						</div>
+						<div class="cBox pwd">
+							<input type="password" placeholder="密码为6-20位字符，可由英文、数字及标点符号组成"/>
+							<i></i>
+							<p></p>
+						</div>
+						<div class="dBox">
+							<input type="text" placeholder="请输入验证码"/>
+							<i></i>
+							<div id="v_container" title="看不清？换一张"></div>
+							<p></p>
+						</div>
+						<div class="dBox">
+							<input type="text" placeholder="请输入短信验证码"/>
+							<i></i>
+							<p></p>
+						</div>
+						<div class="cBox">
+							<input type="text" placeholder="请输入好友验证码（非必填）"/>
+							<i></i>
+						</div>
+						<div class="zc">
+							<input type="checkbox" name="agree" id="agree" checked="checked"/>
+							<span>阅读并同意<a href="#" target="_blank">服务协议</a></span>
+							<input type="button" name="submit" class="submit"/>
+							<p></p>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="footerCon">
+				<p>
+					<a href="#" target="_blank">电脑节</a>|
+					<a href="#" target="_blank">年货节</a>|
+					<a href="#" target="_blank">批发商城</a>|
+					<a href="#" target="_blank">合作及洽谈</a>|
+					<a href="#" target="_blank">联系我们</a>|
+					<a href="#" target="_blank">关于米米乐商城</a>|
+					<a href="#" target="_blank">商家登录</a>|
+					<a href="#" target="_blank">开店协议</a>|
+					<a href="#" target="_blank">商家入驻</a>|
+					<a href="#" target="_blank">手机版</a>|
+					<a href="#" target="_blank">友情链接</a>|
+					<a href="#" target="_blank" class="colorRed">招聘英才</a>|
+					<a href="#" target="_blank">米商</a>|
+					<a href="#" target="_blank">8.8包邮</a>
+				</p>
+				<p>© 2017 米米乐商城 www.mmloo.com 版权所有  蜀ICP备06015925号-1</p>
+			</div>
+		</div>
+		<div class="footerNew">
+			<a href="#" target="_blank"><img src="../img/cxlogo.png"/></a>
+		</div>
+	</body>
+	<script src="../js/jquery-1.11.3.js"></script>
+	<script type="text/javascript">
+		//表单验证
+		$(function(){
+			var inp = $(".loginCon input");
+			var i = $(".loginCon i"); 
+			var p = $(".loginCon p");
+			
+			inp.eq(0).blur(function(){
+				var reg = /^(13\d|15\d|17[678]|18\d|14[57])\d{8}$/;
+				if($(this).val() == ""){
+					//值为空
+					i.eq(0).css("background","url(../img/error.png)");
+					p.eq(0).html("用户不能为空！").css("display","block");
+				}else if(!reg.test($(this).val())){
+					//值不匹配
+					i.eq(0).css("background","url(../img/error.png)");
+					p.eq(0).html("用户不合法！").css("display","block");
+				}else{
+					//值已存在
+					var url = "../php/login.php?action=1&phoneNum=" + $(this).val();
+					$.get(url,function(data){
+						var arr = (new Function("return" + data))();
+						if(arr.state == "success"){
+							i.eq(0).css("background","url(../img/correct.png)");
+							p.eq(0).css("display","none");
+						}else if(arr.state == "error"){
+							i.eq(0).css("background","url(../img/error.png)");
+							p.eq(0).html(arr.text).css("display","block");
+						}
+					})
+				}
+			})
+			inp.eq(1).blur(function(e){
+				var reg = /[\w\W]{6,20}/;
+				if($(this).val() == ""){
+					//值为空
+					i.eq(1).css("background","url(../img/error.png)");
+					p.eq(1).html("密码不能为空！").css("display","block");
+				}else if(!reg.test($(this).val())){
+					//值不匹配
+					i.eq(1).css("background","url(../img/error.png)");
+					p.eq(1).html("密码不合法！").css("display","block");
+				}else{
+					i.eq(1).css("background","url(../img/correct.png)");
+					p.eq(1).css("display","none");
+				}
+			})
+			var verifyCode = new GVerify("v_container");
+			$(".submit").click(function(){
+				var res = verifyCode.validate(inp.eq(2).val());
+				if(inp.eq(0).val() == ""){
+					i.eq(0).css("background","url(../img/error.png)");
+					p.eq(0).html("用户不能为空！").css("display","block");
+				}else if(inp.eq(1).val() == ""){
+					i.eq(1).css("background","url(../img/error.png)");
+					p.eq(1).html("密码不能为空！").css("display","block");
+				}else if(inp.eq(2).val() == ""){
+					i.eq(2).css("background","url(../img/error.png)");
+					p.eq(2).html("验证码不能为空！").css("display","block");
+				}else if(!res){
+					i.eq(2).css("background","url(../img/error.png)");
+					p.eq(2).html("验证码错误！").css("display","block");
+				}else if(p.css("display") == "block"){
+					//如果出现红字 都会不合法
+					p.last().html("输入不合法！").css("display","block");
+				}else if(!$("#agree").is(":checked")){
+					//如果没有同意协议
+					p.last().html("请阅读并同意该协议！").css("display","block");
+				}else{
+					p.eq(2).css("display","none");
+					p.last().css("display","none");
+					var url = "../php/login.php?action=2&phoneNum=" + inp.eq(0).val() + "&password=" + inp.eq(1).val();
+					$.get(url,function(data){
+						var arr = (new Function("return" + data))();
+						//状态只有成功 所以没有else
+						if(arr.state == "success"){
+							alert("恭喜！注册成功！");
+						}
+					})
+				}			
+			})
+		})
+	</script>
+</html>

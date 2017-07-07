@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/loginCommon.css"/>
+		<script src="../js/jquery-1.11.3.js"></script>
+	</head>
+	<body>
+		<div class="ad">
+			<div class="adCon" onclick="window.open('http://www.mmloo.com/shop/activity-1336.html')"></div>
+		</div>
+		<div class="header wrapper">
+			<h1><a href="#" target="_blank"><img src="../img/05053060183653829.png"/></a></h1>
+		</div>
+		<div class="loginLayout wrapper clearfix">
+			<div class="loginleft">
+				<img src="../img/2.jpg"/>
+			</div>
+			<div class="loginright">
+				<div class="logintitle">
+					<p>用户登录</p>
+				</div>
+				<div class="loginCon loginCon2">
+					<form action="" method="post">
+						<div class="box box1">
+							<label for="username"></label>
+							<input type="text" name="username" id="username" value="" placeholder="手机号/会员名/邮箱"/>
+						</div>
+						<div class="box box2">
+							<label for="password"></label>
+							<input type="password" name="password" id="password" value="" />
+						</div>
+						<input type="button" value="登   录" class="login"/>
+						<h3></h3>
+					</form>
+					<p>还不是本站会员？立即<a href="register.html" target="_blank">注册</a></p>
+				</div>
+				<script type="text/javascript">
+					$(function(){
+						var inp = $(".box input");
+						var h = $("h3");
+						$(".login").click(function(){
+							if(inp.first().val() == ""){
+								h.html("请输入用户名！").css("display","block");
+							}else if(inp.last().val() == ""){
+								h.html("请输入密码！").css("display","block");
+							}else{
+								h.css("display","none");
+								var url = "../php/login.php?action=3&phoneNum=" + inp.first().val() + "&password=" + inp.last().val();
+								$.get(url,function(data){
+									console.log(data)
+									var arr = (new Function("return" + data))();
+									console.log(arr);
+									if(arr.state == "success"){
+										h.html("欢迎您！亲爱的用户"+arr.text).css("display","block");
+									}else if(arr.state == "null"){
+										h.html("该用户尚未注册！").css("display","block");
+									}else if(arr.state == "error"){
+										h.html("用户名或密码错误！").css("display","block");
+									}
+								})
+							}
+						})					
+					})
+				</script>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="footerCon">
+				<p>
+					<a href="#" target="_blank">电脑节</a>|
+					<a href="#" target="_blank">年货节</a>|
+					<a href="#" target="_blank">批发商城</a>|
+					<a href="#" target="_blank">合作及洽谈</a>|
+					<a href="#" target="_blank">联系我们</a>|
+					<a href="#" target="_blank">关于米米乐商城</a>|
+					<a href="#" target="_blank">商家登录</a>|
+					<a href="#" target="_blank">开店协议</a>|
+					<a href="#" target="_blank">商家入驻</a>|
+					<a href="#" target="_blank">手机版</a>|
+					<a href="#" target="_blank">友情链接</a>|
+					<a href="#" target="_blank" class="colorRed">招聘英才</a>|
+					<a href="#" target="_blank">米商</a>|
+					<a href="#" target="_blank">8.8包邮</a>
+				</p>
+				<p>© 2017 米米乐商城 www.mmloo.com 版权所有  蜀ICP备06015925号-1</p>
+			</div>
+		</div>
+		<div class="footerNew">
+			<a href="#" target="_blank"><img src="../img/cxlogo.png"/></a>
+		</div>
+	</body>
+	<script src="../js/jquery-1.11.3.js"></script>
+</html>
+

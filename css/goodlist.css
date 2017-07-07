@@ -1,0 +1,89 @@
+.publicNavCon .title ul{
+	display: none;
+}
+.goodList,.goodTitle{
+	border-left: 1px solid #F0F0F0;
+    margin-left: 1px;
+}
+.goodList{
+	width: 1200px;
+    margin: auto;
+    border-top: 5px solid #F0F0F0;
+    margin-top: 10px;
+}
+.goodTitle h3{
+    font-size: 15px;
+    font-weight: bold;
+    padding-left: 10px;
+    height: 45px;
+    line-height: 45px;
+    background: #FAFAFA;
+}
+.goodCon dl{
+	float: left;
+    padding: 9px 9px 14px;
+    border-width: 1px 1px 1px 0px;
+    border-color: #F0F0F0;
+    border-style: solid;
+    width: 220px;
+    overflow: hidden;
+    height: 310px;
+}
+.goodCon dt img,.flyImg{
+	width: 220px;
+	height: 220px;
+}
+.flyImg{
+	position: absolute;
+}
+.goodName{
+	height: 32px;
+    overflow: hidden;
+    font-family: Tahoma,Geneva,sans-serif;
+    line-height: 16px;
+}
+.goodName a{
+	color: #555;
+	font-size: 12px;
+}
+.goodPrice{
+	height: 20px;
+	margin-top: 37px;
+}
+.goodPrice i{
+	color: #FB3648;
+    font-size: 20px;
+    float: left;
+    max-width: 110px;
+}
+.goodPrice a{
+	float: right;
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    top: -8px;
+    background: #ED5951;
+}
+.add{
+	color: #ffffff;
+    background: url(../img/addcart.png);
+    float: right;
+    line-height: 36px;
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+}
+.addCart{
+    height: 36px;
+    line-height: 36px;
+    font-weight: bold;
+    font-size: 12px;
+    color: white;
+    padding-left: 10px;
+}

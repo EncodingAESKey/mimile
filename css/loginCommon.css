@@ -1,0 +1,334 @@
+@charset "utf-8";
+html,body,ul,li,ol,dl,dd,dt,p,h1,h2,h3,h4,h5,h6,form,fieldset,legend,img,input,i,a{
+	margin:0;
+	padding:0; 
+}
+a{
+	text-decoration:none;
+}
+ul,ol,li{
+	list-style: none;
+}
+img{
+	border:0;
+	display:block;
+}
+body{
+	font-family:"微软雅黑";
+	overflow-x: hidden;
+}
+b,strong{
+	font-weight:100;
+}
+i,em{
+	font-style:normal;
+}
+input{
+	outline: none;
+}
+h1,h2,h3,h4,h5,h6{
+	font-size:16px;
+	font-weight:100;
+}
+.clearfix:after{
+	content:".";
+	clear:both;
+	display:block;
+	height:0;
+	overflow:hidden;
+	visibility: hidden;
+}
+a:hover{
+	color: red;
+	transition: 0.3s;
+}
+.wrapper{
+	width: 1000px;
+	margin: 0 auto;
+}
+.ad{
+	background: #FAFAFA;
+}
+.adCon{
+	height: 70px;
+	background: url(../img/05364137059473259.jpg) no-repeat top center;
+	cursor: pointer;
+}
+.header{
+	height: 110px;
+	position: relative;
+}
+.header h1{
+	width: 212px;
+    height: 75px;
+    float: left;
+    margin: 25px 60px auto 0;
+}
+.welcome{
+	float: left;
+    display: block;
+    height: 75px;
+    line-height: 85px;
+    font-size: 20px;
+    font-family: '微软雅黑';
+    margin: 25px 0 0 -55px;
+    color: #666;
+}
+.already_login{
+	float: right;
+    font-family: '微软雅黑';
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    display: block;
+    color: #666;
+    font-size: 12px;
+}
+.loginLayout{
+	margin: 20px auto;
+	box-shadow: 0px 10px 10px rgba(0,0,0,0.1), 1px -2px 20px rgba(0,0,0,0.1) inset;
+}
+.title{
+	border-bottom: 1px solid #E6E6E6;
+    width: 100%;
+    text-align: center;
+}
+.title p{
+	display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    font-family: '微软雅黑';
+    font-size: 22px;
+    margin: 0 26px 0 27px;
+    cursor: pointer;
+    color: #E02423;
+    border-bottom: 2px solid #E02423;
+}
+.loginTemp{
+	width: 400px;
+    margin: 10px auto;
+}
+.loginCon{
+	background: #F9F9F9;
+    padding: 20px 0 0 0;
+    overflow: hidden;
+    zoom: 1;
+}
+.cBox,.dBox{
+	position: relative;
+    width: 100%;
+    height: 70px;
+    font-family: "微软雅黑";
+    font-size: 16px;
+}
+.loginCon input{
+	font-family: "微软雅黑";
+    font-size: 16px;
+    border: 1px solid #E6E6E6;
+}
+.loginCon div i{
+	display: inline-block;
+    position: absolute;
+    right: 16px;
+    top: 13px;
+    width: 16px;
+    height: 16px;
+}
+.loginCon div p,.loginCon2 h3{
+    line-height: 26px;
+    height: 26px;
+    width: 210px;
+    margin: 0;
+    text-indent: 10px;
+    color: #F30;
+    font-family: "微软雅黑";
+    font-size: 16px;
+}
+.loginCon .dBox i{
+	left: 123px;
+    top: 13px;
+}
+.cBox input{
+	height: 40px;
+    width: 398px;
+    text-indent: 10px;
+}
+.dBox input{
+	width: 148px;
+    height: 40px;
+    text-indent: 10px;
+}
+.zc input,.zc span{
+	margin-left: 5px;
+	font-size: 12px;
+}
+.zc input{
+	vertical-align: middle;
+}
+.zc span a{
+	font-weight: 900;
+	color: #c53801;
+	margin-left: 4px;
+}
+.zc span a:hover{
+	text-decoration: underline;
+}
+.zc .submit{
+	font-size: 14px;
+    font-weight: 700;
+    color: #FFF;
+    background: url(../img/register.png) no-repeat;
+    vertical-align: middle;
+    width: 400px;
+    height: 40px;
+    padding: 0;
+    margin: 20px 0;
+    border: 0;
+    cursor: pointer;
+}
+.footerCon{
+	margin: 8px auto 4px;
+    height: 50px;
+    position: relative;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    overflow: hidden;
+}
+.footerCon p{
+	line-height: 26px;
+    height: 20px;
+    text-align: center;
+    color: #666;
+}
+.footerCon a{
+	color: #666;
+	font-size: 12px;
+	padding-right: 3px;
+}
+.footerCon .colorRed{
+	color: red;
+}
+.footerNew{
+	text-align: center;
+}
+.footerNew img{
+	display: inline-block;
+}
+#v_container{
+	display: inline-block;
+	vertical-align: middle;
+	width: 100px;
+	height: 30px;
+	margin-left: 20px;
+}
+.loginleft{
+	background-color: #FFF;
+    width: 450px;
+    height: 350px;
+    float: left;
+    position: relative;
+    z-index: 1;
+    float: left;
+}
+.loginleft img{
+	width: 450px;
+    height: 350px;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+.loginright{
+	width: 352px;
+    float: right;
+    display: inline;
+}
+.logintitle{
+	background: #F9F9F9;
+    border: #D8D8D8 solid;
+    border-width: 0px 1px 0 1px;
+}
+.logintitle p{
+	font-size: 18px;
+    font-family: "microsoft yahei";
+    font-weight: 700;
+    line-height: 20px;
+    padding: 15px 0 25px 25px;
+    color: #555;
+}
+.loginCon .box{
+	width: 100%;
+    float: left;
+    clear: both;
+    padding: 0;
+    position: relative;
+    margin-top: 10px;
+    height: 54px;
+}
+.box label{
+	display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    left: 51px;
+    top: 1px;
+    z-index: 50;
+    outline: 0;
+}
+.box input{
+	font-family: Tahoma;
+    width: 220px;
+    height: 20px;
+    line-height: 20px;
+    background-color: #FFF;
+    padding: 10px 8px 10px 50px;
+    border: solid 1px;
+    border-color: #BBB;
+    position: absolute;
+    left: 50px;
+}
+.loginCon2{
+	border: #D8D8D8 solid;
+    border-width: 0 1px;
+    text-align: center;
+}
+.box1 label{
+	background: #ddd url(../img/yonghu.png) no-repeat center;
+}
+.box2 label{
+	background: #ddd url(../img/suo.png) no-repeat center;
+}
+.loginCon2 .login{
+	font-size: 14px;
+    font-weight: 700;
+    color: #FFF;
+    vertical-align: middle;
+    width: 98px;
+    height: 34px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    cursor: pointer;
+    background: #F08300;
+}
+.loginCon2 p{
+	margin: 10px;
+	font-size: 14px;
+	color: #555;
+}
+.loginCon2 p a{
+	font-weight: 900;
+    color: red;
+    margin-left: 5px;
+}
+.loginCon2 h3{
+	display: none;
+	text-align: center;
+	padding-top: 15px;
+	width: 100%;
+}
