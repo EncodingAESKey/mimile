@@ -1,0 +1,148 @@
+.publicNavCon .title ul{
+	display: none;
+}
+.cartCon{
+	width: 1200px;
+    margin: auto;
+}
+.cartCon h3{
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 40px;
+    cursor: pointer;
+    color: #e4393c;
+}
+.allNum{
+	margin-left: 5px;
+}
+.cartHead{
+    height: 32px;
+    line-height: 32px;
+    margin: 0 0 10px;
+    padding: 5px 0;
+    background: #f3f3f3;
+    border: 1px solid #e9e9e9;
+    border-top: 0;
+    position: relative;
+}
+.cartHead span{
+	display: inline-block;
+	font-size: 12px;
+}
+.cbox,.cbox div,.goods,.price,.num,.sum,.action{
+	float: left;
+}
+.cbox{
+	height: 18px;
+    line-height: 18px;
+    padding-top: 7px;
+    width: 122px;
+    padding-left: 11px;
+}
+.cbox div{
+	padding-top: 2px;
+}
+.cbox label{
+	font-size: 12px;
+	margin-left: 10px;
+}
+.goods{
+	width: 450px;
+}
+.price,.num,.sum,.action,.pPrice,.pNum,.pSum,.pAct{
+	width: 150px;
+	text-align: center;
+}
+.pNum{
+	width: 120px;
+}
+.cartLi{
+    padding: 0 10px 1px 12px;
+    border-top: 1px solid #c5c5c5;
+    line-height: 20px;
+    height: 116px;
+    _height: 116px;
+    background: #fff;
+}
+.cartLi img{
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+}
+.cartLi a{
+	display: inline-block;
+	font-size: 14px;
+	vertical-align: top;
+	color: #000;
+}
+.pCBox,.pGood,.pPrice,.pNum,.pSum,.pAct{
+	float: left;
+}
+.pCBox,.cartLi a,.pPrice,.pNum,.pSum,.pAct{
+	margin-top: 10px;
+}
+.pGood{
+	margin-left: 70px;
+	width: 485px;
+}
+.pPrice{
+	color: red;
+}
+.pNum{
+	padding-left: 30px;
+}
+.pNum input{
+	outline: none;
+	border: none;
+	border: 1px solid #CACBCB;
+}
+.numBtn{
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	float: left;
+	background: #FFFDEF;
+}
+.numInp{
+	float: left;
+	height: 18px;
+	width: 60px;
+	text-align: center;
+}
+.optionBox{
+	width: 1200px;
+	height: 32px;
+    line-height: 32px;
+    margin: 0 auto 10px;
+    padding: 5px 0;
+    background: #f3f3f3;
+    border: 1px solid #e9e9e9;
+    border-top: 0;
+    position: relative;
+}
+.optionBox label,.optionBox span,.pAct{
+	font-size: 12px;
+}
+.qs{
+	margin-left: 70px;
+}
+.fx,.qs{
+	cursor: pointer;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;	
+	margin-right: 20px;
+}
+.fr p{
+	font-size: 12px;
+	float: left;
+	margin: 0 20px;
+}
+.xiaoji{
+	color: red;
+	font-weight: 900;
+	margin: 0 3px;
+}

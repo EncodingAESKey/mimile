@@ -1,0 +1,425 @@
+.publicNavCon .title ul{
+	display: none;
+}
+.content{
+	width: 1200px;
+	margin: 0 auto;
+}
+.conLeft{
+	position: relative;
+	height: 500px;
+	width: 380px;
+	float: left;
+}
+.bigPic{
+	width: 360px;
+	height: 360px;
+    border: solid 0px #EEE;
+    position: absolute;
+    opacity: 1;
+    left: 10px;
+    top: 50px;
+}
+.box{
+	position: absolute;
+	left: 380px;
+	top: 50px;
+	border: 1px solid #9B9B9B;
+	width: 358px;
+	height: 358px;
+	overflow: hidden;
+	display: none;
+	background: #FFFFFF;
+	z-index: 999;
+}
+.box img{
+	position: absolute;
+}
+.floatLayer{
+	width: 360px;
+	height: 360px;
+	position: absolute;
+	z-index: 1;
+}
+.mark{
+	width: 50px;
+	height: 50px;
+	background: red;				
+	filter: alpha(opacity=30);
+	opacity: 0.3;
+	position: absolute;
+	display: none;
+}
+.smallPic{
+    position: absolute;
+    left: 0;
+    top: 410px;
+    height: 64px;
+    width: 100%;
+}
+.smallPic ul{
+	font-size: 0;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.smallPic ul li{
+	vertical-align: middle;
+    letter-spacing: normal;
+    word-spacing: normal;
+    display: inline-block;
+    width: 70px;
+}
+.smallPic ul li a{
+	background-color: #FFF;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    padding: 1px;
+    border: 2px solid #EEE;
+    overflow: hidden;
+}
+.smallPic ul li .active{
+	border: 2px solid #D93600;
+}
+.kjzp{
+	position: absolute;
+    top: 492px;
+    padding: 5px 10px;
+    margin: 10px 0 0 20px;
+    border-radius: 3px;
+    box-shadow: 0 0 0 2px rgba(204,204,204,0.10);
+    zoom: 1;
+}
+.kjzp li{
+	float: left;
+    margin: 0px 0px 0px 20px;
+}
+.kjzp li i{
+	width: 19px;
+    height: 15px;
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0px 5px;
+	background: url(../img/img.png) no-repeat;
+}
+.kjzp li .pf{
+	background-position: 0 -15px;
+}
+.kjzp li .xy{
+	background-position: 0 -30px;
+}
+.kjzp li span{
+	font-size: 12px;
+	color: #666;
+}
+.conRight{
+	float: left;
+	width: 820px;
+	position: relative;
+}
+.conRight h2{
+	font: 700 16px/1.2em "Microsoft Yahei";
+    text-overflow: ellipsis;
+    display: block;
+    padding-bottom: 10px;
+    border-bottom: dotted 1px #CCC;
+    margin-top: 50px;
+    width: 100%;
+}
+.meta{
+	width: 560px;
+	border-bottom: 1px dashed #EEEEEE;
+}
+.meta div{
+	height: 30px;
+    line-height: 40px;
+    position: relative;
+    vertical-align: middle;
+}
+.meta p,.meta .price,.key p{
+	font-size: 12px;
+    line-height: 20px;
+    vertical-align: top;
+    letter-spacing: normal;
+    word-spacing: normal;
+    display: inline-block;
+    min-height: 20px;
+    padding: 4px 0;
+    text-align: right;
+}
+.meta .price{
+	text-decoration: line-through;
+	font-weight: 900;
+	color: #666;
+	width: 60px;
+}
+.meta .discount{
+	font-size: 20px;
+    font-weight: 600;
+    color: #D93600;
+    width: 100px;
+    line-height: 20px;
+    display: inline-block;
+}
+.meta i{
+	font-size: 12px;
+	margin-left: 10px;
+}
+.pj{
+	display: inline-block;
+	width: 100px;
+	vertical-align: middle;
+}
+.pj img{
+	display: inline-block;
+}
+.key{
+	width: 560px;
+    padding-top: 6px;
+    margin-top: 4px;
+}
+.detailNum{
+	position: relative;
+}
+.detailNum span{
+	font-size: 14px;
+	color: red;
+	font-weight: 900;
+	margin-left: 50px;
+	display: none;
+}
+.detailNum input{
+	font: 12px/20px Tahoma;
+    color: #777;
+    background-color: #FFF;
+    vertical-align: top;
+    display: inline-block;
+    height: 20px;
+    padding: 4px;
+    border: solid 1px #CCC;
+    width: 30px;
+}
+.detailNum a{
+	font: 11px/12px sans-serif, serif, Arial;
+    color: #AAA;
+    background-color: #FFF;
+    text-align: center;
+    display: block;
+    width: 16px;
+    height: 12px;
+    border: solid 1px #CCC;
+    position: absolute;
+    z-index: 1;
+    left: 42px;
+}
+.detailNum .increase{
+	top: 4px;
+}
+.detailNum .decrease{
+	top: 20px;
+}
+.detailBtn{
+    height: 80px;
+    padding-right: 10px;
+    margin: 30px 0 0 0;
+    position: relative;
+}
+.detailBtn a{
+	font: lighter 16px/20px "Microsoft Yahei";
+    color: #FFF;
+    text-align: center;
+    display: inline-block;
+    height: 20px;
+    padding: 6px 18px;
+    margin-right: 10px;
+    border-radius: 3px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 0 2px rgba(204,204,204,0.25);
+}
+.detailBtn .buy{
+	background-color: #FFC35C;
+    border: 1px solid #AA8B51;
+}
+.detailBtn .cart{
+	background-color: #E63D40;
+    border: 1px solid #AB4950;
+}
+.detailBtn span{
+	font-size: 12px;
+	font-weight: 900;
+	color: red;
+	margin-left: 20px;
+	display: none;
+}
+.share a{
+	text-align: left;
+    overflow: hidden;
+    display: block;
+    height: 24px;
+    line-height: 24px;
+    padding-left: 28px;
+    background: url(../img/jiathis_ico_24x24.png) no-repeat left;
+    cursor: pointer;
+    float: left;
+    font-size: 22px;
+    text-decoration: none;
+    line-height: 24px;
+}
+.share .sina{
+	background-position: 0 -144px;
+}
+.share .ten{
+	background-position: 0 -216px;
+}
+.share .qzone{
+	background-position: 0 -96px;
+}
+.share .qq{
+	background-position: 0 -3024px;
+}
+.share .wechat{
+	background-position: 0 -2712px;
+}
+.share .renren{
+	background-position: 0 -240px;
+}
+.share .douban{
+	background-position: 0 -840px;
+}
+.info{
+	position: absolute;
+	z-index: 2;
+    top: 80px;
+    right: 0;
+    width: 210px;
+    border: solid 1px #E6E6E6;
+}
+.infotitle{
+	background-color: #F5F5F5;
+    padding: 5px 10px;
+    border-bottom: solid 1px #E6E6E6;
+    font: 900 14px/20px "Microsoft Yahei";
+    color: #555;
+}
+.rate{
+	font-size: 12px;
+	color: #666;
+    display: block;
+    border-bottom: solid 1px #E6E6E6;
+    padding: 6px 0;
+}
+.rate p,.message p{
+	font-size: 12px;
+    color: #666;
+    vertical-align: top;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-align: right;
+    display: inline-block;
+    width: 68px;
+}
+.allrate{
+	background: url(../img/2014grate.png) no-repeat 100% 0;
+    display: block;
+    height: 18px;
+}
+.rate em{
+	color: #DA542E;
+    font-weight: 600;
+    margin-right: 2px;
+}
+.detailRate{
+	color: #999;
+    width: 182px;
+    padding: 5px;
+    margin: 0 auto;
+    border-bottom: solid 1px #E6E6E6;
+}
+.detailRate h5{
+	color: #777;
+    margin-bottom: 4px;
+    font-size: 12px;
+}
+.detailRate h5 b{
+	font-weight: 700;
+    margin-right: 30px;
+}
+.detailRate ul{
+	font-size: 12px;
+	color: #999;
+}
+.detailRate ul li{
+	padding: 2px 0;
+}
+.credit{
+	color: #555;
+    display: inline-block;
+    width: 35px;
+    margin-left: 4px;
+}
+.equal{
+	color: #DA542E;
+    display: inline-block;
+}
+.equal i{
+	background: url(../img/2014grate.png) no-repeat -18px -40px;
+    vertical-align: middle;
+    display: inline-block;
+    width: 9px;
+    height: 8px;
+    margin-right: 4px;
+}
+.equal em{
+	color: #FFF;
+    background-color: #DA542E;
+    text-align: center;
+    display: inline-block;
+    width: 40px;
+    margin-left: 2px;
+}
+.message{
+	font-size: 12px;
+    display: block;
+    border-bottom: solid 1px #E6E6E6;
+    padding: 6px 0;
+}
+.message span{
+	background: url(../img/qq.png) no-repeat;
+	display: inline-block;
+	width: 21px;
+	height: 21px;
+	cursor: pointer;
+}
+.message i{
+	background: url(../img/53kf.jpg) no-repeat;
+	display: inline-block;
+	width: 22px;
+	height: 21px;
+	margin-left: 5px;
+	cursor: pointer;
+}
+.address p{
+	font-size: 12px;
+    display: block;
+    border-bottom: solid 1px #E6E6E6;
+    padding: 6px 8px;
+    color: #666;
+}
+.address p span{
+	color: #333;
+}
+.detail{
+	width: 1200px;
+	margin: 50px auto 0;
+}
+.detail h2{
+	font-size: 30px;
+	margin-bottom: 20px;
+}
+.detail img{
+	display: block;
+	margin: 0 auto;
+}

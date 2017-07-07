@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="../iconfont/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/goodlist.css"/>
+		<script src="../js/cookie.js"></script>
+		<script src="../js/jquery-1.11.3.js"></script>
+	</head>
+	<body>
+		<div class="publicTop">
+			<div class="publicTopCon">
+				<div class="userLogin">
+					<span><a href="login.html" target="_blank">登录</a></span>
+					<span><a href="register.html" target="_blank">注册</a></span>
+				</div>
+				<div class="quickMenu">
+					<ul class="clearfix">
+						<li id="myCart">
+							<a href="javascript:;" target="_blank">购物车<span id="cartNum">0</span>件</a>
+							<i></i>
+						</li>
+						<li>
+							<a href="javascript:;" target="_blank">用户中心</a>
+							<i></i>
+							<ol class="clearfix">
+								<li><a href="javascript:;" target="_blank">商品收藏</a></li>
+								<li><a href="javascript:;" target="_blank">店铺收藏</a></li>
+								<li><a href="javascript:;" target="_blank">收藏米米乐</a></li>
+							</ol>
+						</li>
+						<li>
+							<a href="javascript:;" target="_blank">我的订单</a>
+							<i></i>
+							<ol class="clearfix">
+								<li><a href="javascript:;" target="_blank">待付款订单</a></li>
+								<li><a href="javascript:;" target="_blank">待确认收货</a></li>
+								<li><a href="javascript:;" target="_blank">待评价交易</a></li>
+							</ol>
+						</li>
+						<li>
+							<a href="javascript:;" target="_blank">客户服务</a>
+							<i></i>
+							<ol class="clearfix">
+								<li><a href="javascript:;" target="_blank">帮助中心</a></li>
+								<li><a href="javascript:;" target="_blank">售后服务</a></li>
+								<li><a href="javascript:;" target="_blank">客服中心</a></li>
+								<li><a href="javascript:;" target="_blank">在线客服</a></li>
+								<li><a href="javascript:;" target="_blank">QQ客服 </a></li>
+							</ol>
+						</li>
+						<li id="nav">
+							<i class="iconNav"></i>
+							<a href="javascript:;" target="_blank">网站导航</a>
+							<i></i>
+							<ol class="clearfix">
+								<li><a href="javascript:;" target="_blank">导购频道</a></li>
+							</ol>
+						</li>
+					</ul>
+				</div>
+				<script type="text/javascript">
+					$(function(){
+						var li = $(".quickMenu>ul>li");
+						li.mouseenter(function(){
+							if($(this).has("ol")){
+								$(this).css({
+									"border" : "1px solid #F0F0F0",
+									"borderBottom" : 0,
+									"background" : "#fff"
+								});
+								$(this).children("ol").stop().slideDown().css({
+									"border" : "1px solid #F0F0F0",
+									"borderTop" : 0,
+									"background" : "#fff"
+								});
+							}
+						});
+						li.children("ol").children("li").mouseenter(function(){
+							$(this).css({
+								"background" : "#F7F7F7"
+							})
+						});
+						li.children("ol").children("li").mouseleave(function(){
+							$(this).css({
+								"background" : "#fff"
+							})
+						});
+						li.mouseleave(function(){
+							if($(this).has("ol")){
+								$(this).css({
+									"border" : "1px solid #f8f8f8",
+									"borderBottom" : 0,
+									"background" : "#f8f8f8"
+								})
+								$(this).children("ol").stop().slideUp()
+							}
+						})
+					})
+				</script>
+			</div>
+		</div>
+		<div class="ad">
+			<div class="adCon" onclick="window.open('http://www.mmloo.com/shop/activity-1336.html')">
+				
+			</div>
+		</div>
+		<div class="header">
+			<div class="headerCon">
+				<h1><a href="index.html" target="_blank"></a></h1>
+				<div class="headerSearch">
+					<dl>
+						<dt class="clearfix">
+							<input type="text" name="keyword" id="keyword" autocomplete="off" placeholder="搜索 冬季男装 试试^.^"/>
+							<input type="submit" id="button" value="搜索" class="inpSearch"/>
+							<ul id="searchUl"></ul>
+						</dt>
+						<dd>
+							<li><a href="javascript:;"><span>年会赞助</a></span></li>
+							<li><a href="javascript:;"><span>满50减10</span></a></li>
+							<li><a href="javascript:;"><span>年货节</span></a></li>
+							<li><a href="javascript:;"><span>手机热卖</span></a></li>
+							<li><a href="javascript:;">360全景相机</a></li>
+							<li><a href="javascript:;">iphone7</a></li>
+							<li><a href="javascript:;">beats</a></li>
+						</dd>
+					</dl>
+				</div>
+				<div class="headerUserMenu">
+					<ul class="clearfix">
+						<li>认证包邮</li>
+						<li>招商加盟</li>
+						<li>需求发布</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			//跨域搜索凡客的商品数据
+			//http://page.vanclimg.com/autocompletehandler.ashx?callback=jqautocompletecallback&k=mian&limit=13
+			var keyword = document.getElementById("keyword");
+			var inpSearch = document.getElementById("button");
+			var searchUl = document.getElementById("searchUl");
+			keyword.onkeyup = function(){
+				searchUl.innerHTML = "";
+				var sc = document.createElement("script");
+				sc.src = "http://page.vanclimg.com/autocompletehandler.ashx?callback=fn&k=" + keyword.value + "&limit=13";
+				searchUl.appendChild(sc);
+				if(keyword.value == ""){
+					searchUl.style.border = "none";
+				}else{
+					searchUl.style.display = "block";
+					searchUl.style.border = "1px solid #D93600";
+				}
+			}
+			//上面用的是凡客的接口，所以搜索的时候可能结果不匹配
+			inpSearch.onclick = function(){
+				window.open("http://www.mmloo.com/shop/?check_way=goods&act=search&keyword=" + keyword.value)
+			}
+		</script>
+		<div class="publicNav">
+			<div class="publicNavCon">
+				<div class="category">
+					<div class="title">
+						<p><a href="javascript:;" target="_blank">所有商品分类</a></p>
+						<ul class="clearfix">
+							<li><i></i><h3><a href="javascript:;" target="_blank">手机</a><span>/</span><a href="javascript:;" target="_blank">数码</a></h3>
+								<div class="yiji_a">
+									<div class="yiji_b clearfix">
+										<span></span>
+										<h2><a href="javascript:;" target="_blank">手机数码</a></h2>
+									</div>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">手机通讯</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">IPhone</a>
+											<a href="javascript:;" target="_blank">三星</a>
+											<a href="javascript:;" target="_blank">小米</a>
+											<a href="javascript:;" target="_blank">魅族</a>
+											<a href="javascript:;" target="_blank">华为</a>
+											<a href="javascript:;" target="_blank">诺基亚</a>
+											<a href="javascript:;" target="_blank">联想</a>
+											<a href="javascript:;" target="_blank">HTC</a>
+											<a href="javascript:;" target="_blank">中兴</a>
+											<a href="javascript:;" target="_blank">索尼</a>
+											<a href="javascript:;" target="_blank">乐视</a>
+											<a href="javascript:;" target="_blank">其他</a>
+											<a href="javascript:;" target="_blank">微软</a>
+											<a href="javascript:;" target="_blank">儿童定位手表</a>
+										</dd>
+									</dl>							
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">手机配件</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">贴膜</a>
+											<a href="javascript:;" target="_blank">手机保护壳</a>
+											<a href="javascript:;" target="_blank">电池</a>
+											<a href="javascript:;" target="_blank">手机耳机</a>
+											<a href="javascript:;" target="_blank">充电器/数据线</a>
+											<a href="javascript:;" target="_blank">手机存储卡</a>
+											<a href="javascript:;" target="_blank">移动电源</a>
+											<a href="javascript:;" target="_blank">配件</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">摄影摄像</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">数码摄像机</a>
+											<a href="javascript:;" target="_blank">单反相机</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">数码配件</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">闪光灯</a>
+											<a href="javascript:;" target="_blank">电池/充电器</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">智能设备</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">健康监测</a>
+											<a href="javascript:;" target="_blank">智能手表</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">影音娱乐</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">耳机耳麦</a>
+											<a href="javascript:;" target="_blank">音响</a>
+										</dd>
+									</dl>
+								</div>	
+							</li>
+							<li><i></i><h3><a href="javascript:;" target="_blank">电脑</a><span>/</span><a href="javascript:;" target="_blank">办公</a></h3>
+								<div class="yiji_a">
+									<div class="yiji_b clearfix">
+										<span></span>
+										<h2><a href="javascript:;" target="_blank">电脑办公</a></h2>
+									</div>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">电脑整机</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">电脑配件</a>
+											<a href="javascript:;" target="_blank">服务器/工作站</a>
+											<a href="javascript:;" target="_blank">显示器</a>
+											<a href="javascript:;" target="_blank">一体机</a>
+											<a href="javascript:;" target="_blank">台式机</a>
+											<a href="javascript:;" target="_blank">笔记本</a>
+										</dd>
+									</dl>							
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">平板电脑</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">IPAD</a>
+											<a href="javascript:;" target="_blank">surface</a>
+											<a href="javascript:;" target="_blank">国产平板</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">网络设备</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">3G上网</a>
+											<a href="javascript:;" target="_blank">路由器</a>
+											<a href="javascript:;" target="_blank">移动支付</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">办公设备</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">刷卡机</a>
+											<a href="javascript:;" target="_blank">打印机</a>
+											<a href="javascript:;" target="_blank">多功能一体机</a>
+											<a href="javascript:;" target="_blank">投影仪</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">外设产品</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">移动硬盘</a>
+											<a href="javascript:;" target="_blank">U盘</a>
+											<a href="javascript:;" target="_blank">电脑包</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">服务产品</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">电脑软件</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">办公耗材</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">硒鼓</a>
+											<a href="javascript:;" target="_blank">办公文具</a>
+										</dd>
+									</dl>
+								</div>
+							</li>
+							<li><i></i><h3><a href="javascript:;" target="_blank">食品</a><span>/</span><a href="javascript:;" target="_blank">酒饮</a><span>/</span><a href="javascript:;" target="_blank">生鲜</a><span>/</span><a href="javascript:;" target="_blank">特产</a></h3>
+								<div class="yiji_a">
+									<div class="yiji_b clearfix">
+										<span></span>
+										<h2><a href="javascript:;" target="_blank">食品酒饮</a></h2>
+									</div>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">进口视频</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">进口酒</a>
+											<a href="javascript:;" target="_blank">进口乳制品</a>
+											<a href="javascript:;" target="_blank">进口零食</a>
+											<a href="javascript:;" target="_blank">进口粮油</a>
+											<a href="javascript:;" target="_blank">进口调料</a>
+											<a href="javascript:;" target="_blank">进口冲料</a>
+										</dd>
+									</dl>							
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">酒饮</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">白酒</a>
+											<a href="javascript:;" target="_blank">红酒</a>
+											<a href="javascript:;" target="_blank">功能饮料</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">粮油</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">米面粗粮</a>
+											<a href="javascript:;" target="_blank">罐头榨菜</a>
+											<a href="javascript:;" target="_blank">调味</a>
+											<a href="javascript:;" target="_blank">方便食品</a>
+											<a href="javascript:;" target="_blank">油</a>
+											<a href="javascript:;" target="_blank">有机绿色</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">休闲</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">冲料</a>
+											<a href="javascript:;" target="_blank">糖果</a>
+											<a href="javascript:;" target="_blank">坚果</a>
+											<a href="javascript:;" target="_blank">蜜饯</a>
+											<a href="javascript:;" target="_blank">肉脯</a>
+											<a href="javascript:;" target="_blank">零食</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">茶叶</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">绿茶</a>
+											<a href="javascript:;" target="_blank">花草茶</a>
+											<a href="javascript:;" target="_blank">花果茶</a>
+											<a href="javascript:;" target="_blank">红茶</a>
+											<a href="javascript:;" target="_blank">铁观音</a>
+											<a href="javascript:;" target="_blank">乌龙</a>
+											<a href="javascript:;" target="_blank">其他茶</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">特产</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">熟食特产</a>
+											<a href="javascript:;" target="_blank">干活特产</a>
+											<a href="javascript:;" target="_blank">腌渍特产</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">季节特色</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">月饼</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">保健食品</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">保健品</a>
+										</dd>
+									</dl>
+								</div>
+							</li>							
+							<li><i></i><h3><a href="javascript:;" target="_blank">服装</a><span>/</span><a href="javascript:;" target="_blank">鞋帽</a><span>/</span><a href="javascript:;" target="_blank">箱包</a></h3>
+								<div class="yiji_a">
+									<div class="yiji_b clearfix">
+										<span></span>
+										<h2><a href="javascript:;" target="_blank">服装鞋帽</a></h2>
+									</div>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">眼镜</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">太阳镜</a>
+											<a href="javascript:;" target="_blank">反辐射眼镜</a>
+										</dd>
+									</dl>							
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">箱包</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">女包</a>
+											<a href="javascript:;" target="_blank">男包</a>
+											<a href="javascript:;" target="_blank">行李箱</a>
+											<a href="javascript:;" target="_blank">背包</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">童装</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">儿童上装</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">男鞋</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">男士单鞋</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">女鞋</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">女士休闲鞋</a>
+											<a href="javascript:;" target="_blank">女士靴子</a>
+											<a href="javascript:;" target="_blank">女士单鞋</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">女装</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">女士上衣</a>
+											<a href="javascript:;" target="_blank">女士外衣</a>
+											<a href="javascript:;" target="_blank">女士套装</a>
+											<a href="javascript:;" target="_blank">女袜</a>
+											<a href="javascript:;" target="_blank">女士裙装</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">男装</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">男袜</a>
+											<a href="javascript:;" target="_blank">男士上衣</a>
+											<a href="javascript:;" target="_blank">男士裤装</a>
+										</dd>
+									</dl>
+								</div>
+							</li>							
+							<li><i></i><h3><a href="javascript:;" target="_blank">母婴</a><span>/</span><a href="javascript:;" target="_blank">玩具</a></h3>
+								<div class="yiji_a">
+									<div class="yiji_b clearfix">
+										<span></span>
+										<h2><a href="javascript:;" target="_blank">母婴玩具</a></h2>
+									</div>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">奶粉</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">婴儿奶粉</a>
+										</dd>
+									</dl>							
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">尿裤湿巾</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">婴儿尿裤</a>
+											<a href="javascript:;" target="_blank">拉拉裤</a>
+											<a href="javascript:;" target="_blank">成人尿裤</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">洗护用品</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">宝宝护肤</a>
+											<a href="javascript:;" target="_blank">宝宝洗液</a>
+											<a href="javascript:;" target="_blank">洗衣液</a>
+											<a href="javascript:;" target="_blank">肥皂</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">喂养用品</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">奶瓶奶嘴</a>
+											<a href="javascript:;" target="_blank">吸奶器</a>
+											<a href="javascript:;" target="_blank">牙胶安抚</a>
+											<a href="javascript:;" target="_blank">暖奶消毒</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">玩具乐器</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">DIY玩具</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">妈妈专区</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">妈咪包</a>
+											<a href="javascript:;" target="_blank">背婴带</a>
+											<a href="javascript:;" target="_blank">待产新生</a>
+											<a href="javascript:;" target="_blank">防辐射服</a>
+										</dd>
+									</dl>
+								</div>
+							</li>							
+							<li><i></i><h3><a href="javascript:;" target="_blank">家居</a><span>/</span><a href="javascript:;" target="_blank">生活</a><span>/</span><a href="javascript:;" target="_blank">服务</a></h3>
+								<div class="yiji_a">
+									<div class="yiji_b clearfix">
+										<span></span>
+										<h2><a href="javascript:;" target="_blank">家居生活</a></h2>
+									</div>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">生活服务</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">餐饮</a>
+											<a href="javascript:;" target="_blank">婚纱摄影</a>
+											<a href="javascript:;" target="_blank">儿童摄影</a>
+											<a href="javascript:;" target="_blank">写真</a>
+											<a href="javascript:;" target="_blank">驾校</a>
+											<a href="javascript:;" target="_blank">鲜花</a>
+											<a href="javascript:;" target="_blank">空气净化</a>
+										</dd>
+									</dl>							
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">家纺</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">被子</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">家居</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">卧室家具</a>
+											<a href="javascript:;" target="_blank">客厅家具</a>
+											<a href="javascript:;" target="_blank">餐厅家具</a>
+											<a href="javascript:;" target="_blank">书房家具</a>
+											<a href="javascript:;" target="_blank">储物家具</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">灯具</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">台灯</a>
+											<a href="javascript:;" target="_blank">LED灯</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">家装建材</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">灯饰照明</a>
+											<a href="javascript:;" target="_blank">五金家电</a>
+											<a href="javascript:;" target="_blank">墙地面材料</a>
+										</dd>
+									</dl>
+								</div>
+							</li>	
+							<li><i></i><h3><a href="javascript:;" target="_blank">个护美妆</a><span>/</span><a href="javascript:;" target="_blank">清洁用品</a></h3>
+								<div class="yiji_a">
+									<div class="yiji_b clearfix">
+										<span></span>
+										<h2><a href="javascript:;" target="_blank">个护美妆</a></h2>
+									</div>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">魅力彩妆</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">底妆</a>
+											<a href="javascript:;" target="_blank">眼部</a>
+											<a href="javascript:;" target="_blank">唇部</a>
+											<a href="javascript:;" target="_blank">美甲</a>
+										</dd>
+									</dl>							
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">洗发护发</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">洗发</a>
+											<a href="javascript:;" target="_blank">护发</a>
+											<a href="javascript:;" target="_blank">染发</a>
+											<a href="javascript:;" target="_blank">造型</a>
+											<a href="javascript:;" target="_blank">套装</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">香水SPA</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">香薰精油</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">身体护肤</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">沐浴</a>
+											<a href="javascript:;" target="_blank">润肤</a>
+											<a href="javascript:;" target="_blank">手足</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">口腔护理</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">牙膏/牙粉</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">女性护理</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">卫生巾</a>
+											<a href="javascript:;" target="_blank">私密护理</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">面部护肤</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">清洁</a>
+											<a href="javascript:;" target="_blank">护肤</a>
+											<a href="javascript:;" target="_blank">面膜</a>
+										</dd>
+									</dl>
+								</div>
+							</li>
+							<li><i></i><h3><a href="javascript:;" target="_blank">家居用品</a></h3>
+								<div class="yiji_a">
+									<div class="yiji_b clearfix">
+										<span></span>
+										<h2><a href="javascript:;" target="_blank">家用电器</a></h2>
+									</div>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">大家电</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">冰箱</a>
+											<a href="javascript:;" target="_blank">洗衣机</a>
+										</dd>
+									</dl>							
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">生活电器</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">净化器</a>
+											<a href="javascript:;" target="_blank">挂烫机/熨斗</a>
+											<a href="javascript:;" target="_blank">加湿器</a>
+											<a href="javascript:;" target="_blank">口腔护理</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt>
+											<a href="javascript:;" target="_blank">厨房电器</a>
+											<span>></span>
+										</dt>
+										<dd>
+											<a href="javascript:;" target="_blank">电压力锅</a>
+											<a href="javascript:;" target="_blank">其他厨房电器</a>
+										</dd>
+									</dl>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<script type="text/javascript">
+					$(function(){
+						var li = $(".title>ul>li");
+						li.mouseenter(function(){
+							$(this).children("div").css({
+								"display" : "block"
+							})
+						}).mouseleave(function(){
+							$(this).children("div").css({
+								"display" : "none"
+							})
+						})
+						var t = $(".publicNavCon .title");
+						var ul = $(".publicNavCon .title ul");
+						t.mouseenter(function(){
+							ul.stop().slideDown();
+						}).mouseleave(function(){
+							ul.stop().slideUp();
+						})
+					})
+				</script>
+				<ol class="clearfix">
+					<li><a href="javascript:;" target="_blank"><span>首页</span></a></li>
+					<li><a href="javascript:;" target="_blank">米活动</a></li>
+					<li><a href="javascript:;" target="_blank">乐社区</a></li>
+					<li><a href="javascript:;" target="_blank">商家入驻</a></li>
+					<li><a href="javascript:;" target="_blank">8.8天天抢</a></li>
+					<li><a href="javascript:;" target="_blank">团购</a></li>
+					<li><a href="javascript:;" target="_blank">米金融</a></li>
+				</ol>
+			</div>
+		</div>
+		<!--右侧滑动条-->
+		<div class="aside">
+			<ul>
+				<li class="cart"  title="购物车">
+					<img src="../img/right_cart.png"/>	
+				</li>
+				<li title="新品上架">1F</li>
+				<li title="热卖商品">2F</li>
+				<li title="推荐商品">3F</li>
+				<li title="特价商品">4F</li>
+				<li title="移动加油站">5F</li>
+				<li class="top" title="返回顶部">
+					<img src="../img/right_top.png"/>
+					<p>TOP</p>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			$(function(){
+				//搞一个楼层效果
+				var li = $(".aside li").not(".top,.cart");
+				//获得每一楼的offsetTop,存在数组里
+				var arr = $(".goodList,.footerAd").map(function(index,ele){
+					return $(ele).offset().top;
+				});
+				//获得可是窗口的高度
+				var ch = $(window).height();
+				$(window).resize(function(){
+					ch = $(window).height();
+				});
+				//当窗口滚动的时候触发判断在哪一层
+				var st;
+				$(window).scroll(function(){
+					st = $(this).scrollTop();
+					//遍历数组，如果楼层的offsetTop - 滑动条的scrollTop 小于  可视高度的一半  并且小于下楼的高度说明 在此楼
+					arr.each(function(index,value){
+						//要判断一下是否等于最后一个arr，footer是一个阀值
+						if(index + 1 != arr.length){
+							if(value -  st <= (ch / 2) && arr[index + 1] - st > ch / 2){
+								li.eq(index).css({"background":"#FF3B30","color":"white"})
+							}else{
+								li.eq(index).css({"background":"","color":""})
+							}
+						}
+					})
+				});
+				//给每个li添加点击事件，跳转到对应楼层
+				li.click(function(){
+					$("body").animate({
+						//index要-1的 因为我们去掉了开头的购物车li  当前的index变小
+						"scrollTop" : arr[$(this).index() - 1]
+					})
+				})
+				$(".top").click(function(){
+					$("body").animate({
+						"scrollTop" : 0
+					})
+				})
+			})
+		</script>
+		<div class="goodList">
+			<div class="goodTitle">
+				<h3>新品上架</h3>
+			</div>
+			<div class="goodCon clearfix">
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+			</div>
+		</div>
+		<div class="goodList">
+			<div class="goodTitle">
+				<h3>热卖商品</h3>
+			</div>
+			<div class="goodCon clearfix">
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+			</div>
+		</div>
+		<div class="goodList">
+			<div class="goodTitle">
+				<h3>推荐商品</h3>
+			</div>
+			<div class="goodCon clearfix">
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+			</div>
+		</div>
+		<div class="goodList">
+			<div class="goodTitle">
+				<h3>特价商品</h3>
+			</div>
+			<div class="goodCon clearfix">
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+			</div>
+		</div>
+		<div class="goodList">
+			<div class="goodTitle">
+				<h3>移动加油站</h3>
+			</div>
+			<div class="goodCon clearfix">
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+				<dl>
+					<dt class="goodPic"><a href="gooddetail.html" target="_blank"><img/></a></dt>
+					<dd class="goodName"><a href="gooddetail.html" target="_blank"></a></dd>
+					<dd class="goodPrice"><i></i><a href="gooddetail.html" target="_blank">
+						<div class="add"></div>
+						<div class="addCart">加入购物车</div>
+					</a></dd>
+				</dl>
+			</div>
+		</div>
+		<script type="text/javascript">
+			$(function(){
+				var url = "../php/goodlist.php";
+				$.get(url,function(data){
+					$arr = (new Function("return" + data))();
+					//console.log($arr1)
+					$.each($arr,function(i,m){
+						//i指的是下标  m指的是每个$arr的元素    
+						//console.log(m);
+						$(".goodPic a").eq(i).attr("href","gooddetail.html?id=" + m.id);
+						$(".goodPic img").eq(i).attr("src","../img/" + m.img);
+						$(".goodName a").eq(i).html(m.content).attr("href","gooddetail.html?id=" + m.id);
+						$(".goodPrice i").eq(i).html("￥"+m.discount);
+						//把商品的信息存到dl上
+						$(".goodPic").eq(i).parent().attr("cookie",JSON.stringify(m));
+					})
+				})
+				//点击链接添加到购物车
+				$(".goodPrice a").click(function(){
+					//找到当前图片
+					var img = $(this).parent().prev().prev().children("a").children("img");
+					//找到当前的dl
+					var dl = $(this).parent().parent();
+					//通过dl找到商品信息
+					var c = JSON.parse(dl.attr("cookie"));
+					//创建一个同样的img
+					var flyImg = $("<img />");
+					flyImg.addClass("flyImg");
+					//添加到body里
+					$("body").append(flyImg);
+					var tl = $(".aside").offset().left;
+					var tr = $(".cart").offset().top + 6;
+					//飞入购物车
+					flyImg.attr("src",img.attr("src")).css({
+						"left" : img.offset().left,
+						"top" : img.offset().top
+					}).animate({
+						"left" : tl,
+						"top" : tr,
+						"width" : 40,
+						"height" : 40 
+					},700,function(){
+						flyImg.remove();
+						//获得cookie
+						var str = getCookie("g" + c.id);
+						//自定义一个变量num存储商品数量 
+						var num;
+						//我也不知道为什么我的是undefined老师的是""空
+						if(str == undefined){
+							num = 1;
+						}else{
+							num = JSON.parse(str).num + 1;
+						}
+						//将变量num赋值给cookie自定义一个num属性
+						c["num"] = num;
+						createCookie("g" + c.id,JSON.stringify(c),7);
+					});
+				})
+				//点击购物车跳转到购物车页面
+				$(".cart").click(function(){
+					window.open("cart.html");
+				})
+				$(".goodPrice a").hover(function(){
+					$(this).stop().animate({
+						"width" : 110
+					},300)
+				},function(){
+					$(this).stop().animate({
+						"width" : 36
+					},300)
+				})
+			})
+		</script>
+		<div class="footerAd">
+			<a href="gooddetail.html" target="_blank"><img src="../img/web-1-3-1.jpg"/></a>
+		</div>
+		<div class="faq">
+			<div class="faqCon">
+				<ul>
+					<li>
+						<h3>购物指南</h3>
+						<ol>
+							<li><i></i><a href="javascript:;" target="_blank">礼品卡的购买与使用</a></li>
+							<li><i></i><a href="javascript:;" target="_blank">无法收到邮件？</a></li>
+							<li><i></i><a href="javascript:;" target="_blank">关于捷信分期</a></li>
+							<li><i></i><a href="javascript:;" target="_blank">邮费制度</a></li>
+							<li><i></i><a href="javascript:;" target="_blank">订单状态说明</a></li>
+						</ol>
+					</li>
+					<li>
+						<h3>支付方式</h3>
+						<ol>
+							<li><i></i><a href="javascript:;" target="_blank">支付问题</a></li>
+							<li><i></i><a href="javascript:;" target="_blank">在线支付</a></li>
+							<li><i></i><a href="javascript:;" target="_blank">货到付款</a></li>
+							<li><i></i><a href="javascript:;" target="_blank">营销推广</a></li>
+						</ol>
+					</li>
+					<li>
+						<h3>配送与服务</h3>
+						<ol>
+							<li><i></i><a href="javascript:;" target="_blank">申请售后退款说明</a></li>
+							<li><i></i><a href="javascript:;" target="_blank">取消订单退款说明</a></li>
+							<li><i></i><a href="javascript:;" target="_blank">装机与维修服务</a></li>
+							<li><i></i><a href="javascript:;" target="_blank">退换货流程</a></li>
+							<li><i></i><a href="javascript:;" target="_blank">第三方配送</a></li>
+						</ol>
+					</li>
+					<li>
+						<h3>商家入驻</h3>
+						<ol>
+							<li><i></i><a href="javascript:;" target="_blank">小米鸽（兼职招商专员）</a></li>
+							<li><i></i><a href="javascript:;" target="_blank">广告位管理与流程申报</a></li>
+							<li><i></i><a href="javascript:;" target="_blank">活动组织与流程申报</a></li>
+							<li><i></i><a href="javascript:;" target="_blank">如何发货</a></li>
+							<li><i></i><a href="javascript:;" target="_blank">我要开店</a></li>
+						</ol>
+					</li>
+				</ul>
+				<div class="faqRight">
+					<div class="kefu">
+						<dl>
+							<dt>客服中心</dt>
+							<dd class="tel">4006-780-781</dd>
+							<dd>E-mail：mmloo@mmloo.com</dd>
+							<dd>四川省成都市新南路亚华大厦六楼</dd>
+							<dd class="qq"><a href="javascript:;" target="_blank">4006780781</a></dd>
+						</dl>
+					</div>
+					<div class="about">
+						<dl>
+							<dt>关于米米乐商城</dt>
+							<dd><img src="../img/scmmloo.png"/></dd>
+							<dd>手机下单更优惠</dd>
+							<dd>快乐网购 轻松拥有</dd>
+						</dl>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="footerCon">
+				<p>
+					<a href="javascript:;" target="_blank">电脑节</a>|
+					<a href="javascript:;" target="_blank">年货节</a>|
+					<a href="javascript:;" target="_blank">批发商城</a>|
+					<a href="javascript:;" target="_blank">合作及洽谈</a>|
+					<a href="javascript:;" target="_blank">联系我们</a>|
+					<a href="javascript:;" target="_blank">关于米米乐商城</a>|
+					<a href="javascript:;" target="_blank">商家登录</a>|
+					<a href="javascript:;" target="_blank">开店协议</a>|
+					<a href="javascript:;" target="_blank">商家入驻</a>|
+					<a href="javascript:;" target="_blank">手机版</a>|
+					<a href="javascript:;" target="_blank">友情链接</a>|
+					<a href="javascript:;" target="_blank" class="colorRed">招聘英才</a>|
+					<a href="javascript:;" target="_blank">米商</a>|
+					<a href="javascript:;" target="_blank">8.8包邮</a>
+				</p>
+				<p>© 2017 米米乐商城 www.mmloo.com 版权所有  蜀ICP备06015925号-1</p>
+			</div>
+		</div>
+		<div class="footerNew">
+			<a href="javascript:;" target="_blank"><img src="../img/cxlogo.png"/></a>
+		</div>
+	</body>
+</html>
